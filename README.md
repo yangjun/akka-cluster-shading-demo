@@ -1,4 +1,7 @@
-activator-akka-java-seed
-========================
+akka cluster sharding demo
 
-A minimal seed template for an Akka with Java build
+activator
+
+run 2551
+
+App

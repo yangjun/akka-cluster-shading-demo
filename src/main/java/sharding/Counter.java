@@ -10,6 +10,7 @@ import akka.persistence.UntypedPersistentActor;
 import scala.concurrent.duration.Duration;
 
 import java.util.concurrent.TimeUnit;
+import java.io.Serializable;
 
 /**
  * Created by yangjungis@126.com on 2015/5/24.
@@ -19,7 +20,7 @@ public class Counter extends UntypedPersistentActor {
     INCREMENT, DECREMENT
   }
 
-  public static class Get {
+  public static class Get implements Serializable {
     final public long counterId;
 
     public Get(long counterId) {
@@ -27,7 +28,7 @@ public class Counter extends UntypedPersistentActor {
     }
   }
 
-  public static class EntryEnvelope {
+  public static class EntryEnvelope implements Serializable {
     final public long id;
     final public Object payload;
 
@@ -37,7 +38,7 @@ public class Counter extends UntypedPersistentActor {
     }
   }
 
-  public static class CounterChanged {
+  public static class CounterChanged implements Serializable {
     final public int delta;
 
     public CounterChanged(int delta) {
